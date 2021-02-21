@@ -43,9 +43,10 @@
             </Pane>
             <TableView layoutX="200.0" prefHeight="200.0" prefWidth="375.0">
               <columns>
-                <TableColumn prefWidth="126.0" text="موجودی " />
-                <TableColumn prefWidth="133.0" text="شماره موبایل" />
-                  <TableColumn prefWidth="114.0" text="نام" />
+                <TableColumn prefWidth="82.0" text="ارز" />
+                <TableColumn prefWidth="96.0" text="موجوی" />
+                  <TableColumn minWidth="0.0" prefWidth="100.0" text="نمبر مبایل" />
+                  <TableColumn prefWidth="96.0" text="نام" />
               </columns>
             </TableView>
             <Pane layoutX="200.0" layoutY="200.0" prefHeight="200.0" prefWidth="375.0">

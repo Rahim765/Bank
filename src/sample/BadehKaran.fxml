@@ -44,12 +44,12 @@
       </Pane>
       <Pane layoutX="430.0" layoutY="337.0" prefHeight="172.0" prefWidth="200.0">
          <children>
-            <Label layoutX="71.0" layoutY="6.0" text="اضافه کردن" />
+            <Label layoutX="71.0" layoutY="1.0" text="اضافه کردن" />
             <Label layoutX="14.0" layoutY="31.0" text="نام" />
             <Label layoutX="14.0" layoutY="60.0" text="موبایل" />
             <Label layoutX="14.0" layoutY="86.0" text="مبلغ" />
             <Label layoutX="20.0" layoutY="117.0" text="ارز" />
-            <Button layoutX="74.0" layoutY="146.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="68.0" layoutY="146.0" mnemonicParsing="false" text="اضافه کردن" />
             <TextField layoutX="49.0" layoutY="27.0" />
             <TextField layoutX="49.0" layoutY="55.0" />
             <TextField layoutX="49.0" layoutY="84.0" />

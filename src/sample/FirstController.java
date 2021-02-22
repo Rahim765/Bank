@@ -50,7 +50,7 @@ public class FirstController implements Initializable {
         try {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", true)));
             Customer customer = new Customer(signup_name.getText(),signup_num.getText(),signup_cost.getText(),arz_signup.getValue());
-            SignUp.sabt_name(customer.getName(),customer.getNumber(),customer.getCost(), warning, arz_signup.getValue());
+             new  SignUp().sabt_name(customer.getName(),customer.getNumber(),customer.getCost(), warning, arz_signup.getValue(), "Signup.txt");
             signup_name.setText("");
             signup_num.setText("");
             signup_cost.setText("");

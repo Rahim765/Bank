@@ -5,15 +5,15 @@ import javafx.scene.control.TextField;
 
 import java.io.*;
 
-public class    SignUp {
+public class SignUp {
 
-    public static void sabt_name(String name, String num, String cost, Label warning , String arz) {
+    public  void sabt_name(String name, String num, String cost, Label warning , String arz , String path) {
         boolean repeat = false;
         BufferedReader bufferedReader= null;
         PrintWriter printWriter = null;
         try {
-           bufferedReader = new BufferedReader(new FileReader("Signup.txt"));
-           printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", true)));
+           bufferedReader = new BufferedReader(new FileReader(path));
+           printWriter =  new PrintWriter(new BufferedWriter(new FileWriter(path, true)));
 
             while (true) {
                 String line = bufferedReader.readLine();

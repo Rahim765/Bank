@@ -7,7 +7,7 @@ import java.io.*;
 
 public class    SignUp {
 
-    public static void sabt_name(String name, String num, String cost, Label warning) {
+    public static void sabt_name(String name, String num, String cost, Label warning , String arz) {
         boolean repeat = false;
         BufferedReader bufferedReader= null;
         PrintWriter printWriter = null;
@@ -23,7 +23,7 @@ public class    SignUp {
                 }
 
                 String[] s = line.split(" ");
-                if (name.equals(s[0])&&num.equals(s[1])) {
+                if (name.equals(s[0])&&num.equals(s[1]) && arz.equals(s[3])) {
                     repeat = true;
                     break;
                 }
@@ -37,7 +37,7 @@ public class    SignUp {
         }
 
         if (repeat == false) {
-            printWriter.println(name  + " " + num  + " " + cost );
+            printWriter.println(name  + " " + num  + " " + cost+ " "+ arz );
             printWriter.flush();
             warning.setText("");
 

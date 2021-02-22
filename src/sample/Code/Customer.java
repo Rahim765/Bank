@@ -2,10 +2,11 @@ package sample.Code;
 
 public class Customer {
 
-    public Customer(String name, String number, String cost) {
+    public Customer(String name, String number, String cost, String arzCost) {
         this.name = name;
         this.number = number;
         this.cost = cost;
+        this.arzCost = arzCost;
     }
 
     public void setName(String name) {
@@ -32,8 +33,16 @@ public class Customer {
         return this.cost;
     }
 
+    public String getArzCost() {
+        return arzCost;
+    }
+
+    public void setArzCost(String arzCost) {
+        this.arzCost = arzCost;
+    }
 
     private String name;
     private String number;
     private String cost;
+    private String arzCost;
 }

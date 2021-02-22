@@ -23,7 +23,7 @@
             <Label layoutX="22.0" layoutY="142.0" text="ارز" />
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="-1.0" prefHeight="498.0" prefWidth="433.0">
+      <TableView fx:id="table" layoutX="-1.0" layoutY="37.0" prefHeight="461.0" prefWidth="433.0">
         <columns>
           <TableColumn fx:id="arz" prefWidth="102.0" text="ارز" />
           <TableColumn fx:id="mablagh" prefWidth="116.0" text="مبلغ" />
@@ -31,26 +31,13 @@
             <TableColumn fx:id="name" prefWidth="111.0" text="نام" />
         </columns>
       </TableView>
-      <Pane layoutX="432.0" layoutY="200.0" prefHeight="200.0" prefWidth="207.0">
-         <children>
-            <Button layoutX="78.0" layoutY="160.0" mnemonicParsing="false" text="جستجو" />
-            <Label layoutX="84.0" layoutY="6.0" text="موجودی" />
-            <Label layoutX="15.0" layoutY="34.0" text="نام" />
-            <Label layoutX="12.0" layoutY="66.0" text="نمبر" />
-            <Label layoutX="34.0" layoutY="129.0" prefHeight="25.0" prefWidth="142.0" textFill="#eb3209" />
-            <TextField layoutX="46.0" layoutY="30.0" />
-            <TextField layoutX="46.0" layoutY="62.0" />
-            <Line endX="107.0" endY="-9.20709228515625" layoutX="103.0" layoutY="200.0" startX="-103.0" startY="-9.20709228515625" />
-            <Line endX="-120.0" endY="111.79290771484375" layoutX="120.0" layoutY="79.0" startX="-120.0" startY="-79.0" />
-            <ComboBox fx:id="arz_search" layoutX="45.0" layoutY="95.0" prefWidth="150.0" promptText="نوع ارز" />
-            <Label layoutX="16.0" layoutY="99.0" text="ارز" />
-         </children>
-      </Pane>
       <Pane layoutX="426.0" layoutY="399.0" prefHeight="98.0" prefWidth="216.0">
          <children>
             <Button layoutX="7.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" text="تراکنش ها " />
             <Button layoutX="7.0" layoutY="49.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" text="لیست بدهکاران" />
          </children>
       </Pane>
+      <Line endX="108.0" layoutX="534.0" layoutY="399.0" startX="-100.0" />
+      <TextField layoutX="131.0" layoutY="7.0" />
    </children>
 </AnchorPane>

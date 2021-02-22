@@ -29,9 +29,7 @@ public class FirstController implements Initializable {
     @FXML
     Label warning;
     @FXML
-    ComboBox<String> arz_signup = new ComboBox<>();
-    @FXML
-    ComboBox<String> arz_search = new ComboBox<>();
+    ComboBox<String> arz_signup ;
     @FXML
     TableView table = new TableView();
     @FXML
@@ -71,7 +69,6 @@ public class FirstController implements Initializable {
         arz.setCellValueFactory(new PropertyValueFactory<Customer , String>("arzCost"));
         setlist();
         arz_signup.setItems(listrz);
-        arz_search.setItems(listrz);
     }
 
     public void setlist(){

@@ -39,6 +39,17 @@ public class BController implements Initializable {
     TableColumn<Customer , String> mablagh2;
     @FXML
     TableColumn<Customer , String> arz2;
+    @FXML
+    TextField namee;
+    @FXML
+    TextField numbere;
+    @FXML
+    TextField mablaghe;
+    @FXML
+    ComboBox<String> arze;
+    @FXML
+    Button ezafeh;
+
     ObservableList<Customer> list_customer;
     ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان");
 
@@ -56,7 +67,6 @@ public class BController implements Initializable {
             e.printStackTrace();
         }
     }
-
     public void setlist(){
         list_customer = FXCollections.observableArrayList();
         BufferedReader bufferedReader= null;
@@ -79,6 +89,48 @@ public class BController implements Initializable {
         }
     }
 
+    public void setEzafeh(ActionEvent actionEvent){
+        String x="";
+        BufferedReader bufferedReader= null;
+        PrintWriter printWriter = null;
+        try {
+            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", false)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bufferedReader = new BufferedReader(new FileReader("Badehkar.txt"));
+            while (true) {
+                String line = bufferedReader.readLine();
+                if (line == null) {
+                    break;
+                }
+                String[] s = line.split(" ");
+                if (namee.getText().equals(s[0])&& numbere.getText().equals(s[1])
+                        &&arze.getValue().equals(s[3])) {
+                    int price = Integer.parseInt(s[2]);
+                    int price2 = Integer.parseInt(mablaghe.getText());
+                    System.out.println(s[0]+" "+s[1]+" "+String.valueOf(price+price2)+" "+s[3]+"\n");
+                    x = x+s[0]+" "+s[1]+" "+String.valueOf(price+price2)+" "+s[3]+"\n";
+
+                }else {
+                    System.out.println(s[0] + " " + s[1] + " " + s[2] + " " + s[3] + "\n");
+                    x += s[0] + " " + s[1] + " " + s[2] + " " + s[3] + "\n";
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        printWriter.print("");
+        printWriter.println(x);
+        printWriter.flush();
+        System.out.println(x);
+        //setlist();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name2.setCellValueFactory(new PropertyValueFactory<Customer , String>("name"));
@@ -87,5 +139,6 @@ public class BController implements Initializable {
         arz2.setCellValueFactory(new PropertyValueFactory<Customer , String>("arzCost"));
         setlist();
         arz.setItems(listrz);
+        arze.setItems(listrz);
     }
 }

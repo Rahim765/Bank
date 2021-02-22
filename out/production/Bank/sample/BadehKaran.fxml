@@ -53,11 +53,11 @@
             <Label layoutX="9.0" layoutY="60.0" text="موبایل" />
             <Label layoutX="14.0" layoutY="89.0" text="مبلغ" />
             <Label layoutX="14.0" layoutY="117.0" text="ارز" />
-            <Button layoutX="73.0" layoutY="143.0" mnemonicParsing="false" text="اضافه کردن" />
-            <TextField layoutX="47.0" layoutY="28.0" />
-            <TextField layoutX="47.0" layoutY="56.0" />
-            <TextField layoutX="47.0" layoutY="85.0" />
-            <ComboBox layoutX="47.0" layoutY="113.0" prefWidth="150.0" promptText="نوع ارز" />
+            <Button fx:id="ezafeh" layoutX="73.0" layoutY="143.0" mnemonicParsing="false" onAction="#setEzafeh" text="اضافه کردن" />
+            <TextField fx:id="namee" layoutX="47.0" layoutY="28.0" />
+            <TextField fx:id="numbere" layoutX="47.0" layoutY="56.0" />
+            <TextField fx:id="mablaghe" layoutX="47.0" layoutY="85.0" />
+            <ComboBox fx:id="arze" layoutX="47.0" layoutY="113.0" prefWidth="150.0" promptText="نوع ارز" />
          </children>
       </Pane>
    </children>

@@ -94,12 +94,6 @@ public class BController implements Initializable {
         BufferedReader bufferedReader= null;
         PrintWriter printWriter = null;
         try {
-            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", false)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
             bufferedReader = new BufferedReader(new FileReader("Badehkar.txt"));
             while (true) {
                 String line = bufferedReader.readLine();
@@ -111,11 +105,9 @@ public class BController implements Initializable {
                         &&arze.getValue().equals(s[3])) {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghe.getText());
-                    System.out.println(s[0]+" "+s[1]+" "+String.valueOf(price+price2)+" "+s[3]+"\n");
                     x = x+s[0]+" "+s[1]+" "+String.valueOf(price+price2)+" "+s[3]+"\n";
 
                 }else {
-                    System.out.println(s[0] + " " + s[1] + " " + s[2] + " " + s[3] + "\n");
                     x += s[0] + " " + s[1] + " " + s[2] + " " + s[3] + "\n";
                 }
             }
@@ -124,11 +116,14 @@ public class BController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        printWriter.print("");
-        printWriter.println(x);
-        printWriter.flush();
-        System.out.println(x);
-        //setlist();
+        try {
+            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", false)));
+            printWriter.print(x);
+            printWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        setlist();
     }
 
     @Override

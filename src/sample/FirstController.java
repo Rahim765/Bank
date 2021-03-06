@@ -81,7 +81,7 @@ public class FirstController implements Initializable {
                 if (line == null) {
                     break;
                 }
-                String[] s = line.split(" ");
+                String[] s = line.split("@");
                 list_customer.add(new Customer(s[0], s[1], s[2], s[3]));
             }
         } catch (FileNotFoundException e) {

@@ -22,7 +22,7 @@ public class SignUp {
                     break;
                 }
 
-                String[] s = line.split(" ");
+                String[] s = line.split("@");
                 if (name.equals(s[0])&&num.equals(s[1]) && arz.equals(s[3])) {
                     repeat = true;
                     break;
@@ -37,7 +37,7 @@ public class SignUp {
         }
 
         if (repeat == false) {
-            printWriter.println(name  + " " + num  + " " + cost+ " "+ arz );
+            printWriter.println(name  + "@" + num  + "@" + cost+ "@"+ arz );
             printWriter.flush();
             warning.setText("");
 

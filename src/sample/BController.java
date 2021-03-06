@@ -77,7 +77,7 @@ public class BController implements Initializable {
                 if (line == null) {
                     break;
                 }
-                String[] s = line.split(" ");
+                String[] s = line.split("@");
                 list_customer.add(new Customer(s[0], s[1], s[2], s[3]));
             }
         } catch (FileNotFoundException e) {
@@ -100,15 +100,15 @@ public class BController implements Initializable {
                 if (line == null) {
                     break;
                 }
-                String[] s = line.split(" ");
+                String[] s = line.split("@");
                 if (namee.getText().equals(s[0])&& numbere.getText().equals(s[1])
                         &&arze.getValue().equals(s[3])) {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghe.getText());
-                    x = x+s[0]+" "+s[1]+" "+String.valueOf(price+price2)+" "+s[3]+"\n";
+                    x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price+price2)+"@"+s[3]+"\n";
 
                 }else {
-                    x += s[0] + " " + s[1] + " " + s[2] + " " + s[3] + "\n";
+                    x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
                 }
             }
         } catch (FileNotFoundException e) {

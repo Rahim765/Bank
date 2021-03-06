@@ -49,6 +49,16 @@ public class BController implements Initializable {
     ComboBox<String> arze;
     @FXML
     Button ezafeh;
+    @FXML
+    TextField namet;
+    @FXML
+    TextField numbert;
+    @FXML
+    TextField mablaght;
+    @FXML
+    ComboBox<String> arzt;
+    @FXML
+    Button tasfiah;
 
     ObservableList<Customer> list_customer;
     ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان");
@@ -125,6 +135,44 @@ public class BController implements Initializable {
         }
         setlist();
     }
+    public void setTasfiah(ActionEvent actionEvent){
+        String x="";
+        BufferedReader bufferedReader= null;
+        PrintWriter printWriter = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("Badehkar.txt"));
+            while (true) {
+                String line = bufferedReader.readLine();
+                if (line == null) {
+                    break;
+                }
+                String[] s = line.split("@");
+                if (namet.getText().equals(s[0])&& numbert.getText().equals(s[1])
+                        &&arzt.getValue().equals(s[3])) {
+                    int price = Integer.parseInt(s[2]);
+                    int price2 = Integer.parseInt(mablaght.getText());
+                    if (price-price2>0) {
+                        x = x + s[0] + "@" + s[1] + "@" + String.valueOf(price - price2) + "@" + s[3] + "\n";
+                    }
+
+                }else {
+                    x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", false)));
+            printWriter.print(x);
+            printWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        setlist();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -135,5 +183,6 @@ public class BController implements Initializable {
         setlist();
         arz.setItems(listrz);
         arze.setItems(listrz);
+        arzt.setItems(listrz);
     }
 }

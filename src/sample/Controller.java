@@ -9,6 +9,9 @@ import javafx.scene.control.*;
 
 import java.io.*;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -69,7 +72,14 @@ public class Controller implements Initializable {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghe.getText());
                     x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price+price2)+"@"+s[3]+"\n";
-
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+df.format(dateobj)+"@"+"اضافه"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
                 }else {
                     x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
                 }

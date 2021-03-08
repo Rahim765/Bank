@@ -18,9 +18,9 @@
       </TableView>
       <Pane layoutX="446.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TextField layoutX="44.0" layoutY="54.0" />
-            <TextField layoutX="44.0" layoutY="100.0" />
-            <Button layoutX="74.0" layoutY="150.0" mnemonicParsing="false" text="جستجو" />
+            <TextField fx:id="namej" layoutX="44.0" layoutY="54.0" />
+            <TextField fx:id="numberj" layoutX="44.0" layoutY="100.0" />
+            <Button fx:id="jostejo" layoutX="74.0" layoutY="150.0" mnemonicParsing="false" text="جستجو" />
             <Label layoutX="16.0" layoutY="58.0" text="نام" />
             <Label layoutX="7.0" layoutY="104.0" text="موبایل" />
             <Label layoutX="44.0" layoutY="14.0" text="جستجو سابقه تراکنش ها" />
@@ -29,9 +29,9 @@
       <Pane layoutX="446.0" layoutY="238.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label layoutX="51.0" layoutY="14.0" text="حذف سابقه تراکنش ها" />
-            <TextField layoutX="45.0" layoutY="58.0" />
-            <TextField layoutX="45.0" layoutY="107.0" />
-            <Button layoutX="74.0" layoutY="152.0" mnemonicParsing="false" text="حذف" />
+            <TextField fx:id="nameh" layoutX="45.0" layoutY="58.0" />
+            <TextField fx:id="numberh" layoutX="45.0" layoutY="107.0" />
+            <Button fx:id="hazf" layoutX="74.0" layoutY="152.0" mnemonicParsing="false" text="حذف" />
             <Label layoutX="18.0" layoutY="62.0" text="نام" />
             <Label layoutX="9.0" layoutY="111.0" text="موبایل" />
          </children>

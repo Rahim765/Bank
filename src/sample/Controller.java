@@ -75,7 +75,7 @@ public class Controller implements Initializable {
                     String tarakonesh ="";
                     DateFormat df = new SimpleDateFormat("dd/MM/yy");
                     Date dateobj = new Date();
-                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+df.format(dateobj)+"@"+"اضافه"+"\n";
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"اضافه"+"\n";
                     PrintWriter printWriter2 = null;
                     printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
                     printWriter2.print(tarakonesh);
@@ -115,7 +115,14 @@ public class Controller implements Initializable {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghb.getText());
                     x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price-price2)+"@"+s[3]+"\n";
-
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"برداشت"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
                 }else {
                     x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
                 }
@@ -151,12 +158,28 @@ public class Controller implements Initializable {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghv.getText());
                     x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price-price2)+"@"+s[3]+"\n";
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"انتقال"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
 
                 }else if (named.getText().equals(s[0])&& numberd.getText().equals(s[1])
                         &&comboBox_daryaft.getValue().equals(s[3])) {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghv.getText());
                     x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price+price2)+"@"+s[3]+"\n";
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"دریافت"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
                 }
                 else {
                     x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";

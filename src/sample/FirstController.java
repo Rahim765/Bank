@@ -14,6 +14,9 @@ import sample.Code.SignUp;
 import javax.swing.*;
 import java.io.*;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class FirstController implements Initializable {
@@ -49,6 +52,14 @@ public class FirstController implements Initializable {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", true)));
             Customer customer = new Customer(signup_name.getText(),signup_num.getText(),signup_cost.getText(),arz_signup.getValue());
              new  SignUp().sabt_name(customer.getName(),customer.getNumber(),customer.getCost(), warning, arz_signup.getValue(), "Signup.txt");
+            String tarakonesh ="";
+            DateFormat df = new SimpleDateFormat("dd/MM/yy");
+            Date dateobj = new Date();
+            tarakonesh= signup_name.getText()+"@"+signup_num.getText()+"@"+signup_cost.getText()+"@"+arz_signup.getValue()+"@"+df.format(dateobj)+"@"+"اضافه"+"\n";
+            PrintWriter printWriter2 = null;
+            printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+            printWriter2.print(tarakonesh);
+            printWriter2.flush();
             signup_name.setText("");
             signup_num.setText("");
             signup_cost.setText("");

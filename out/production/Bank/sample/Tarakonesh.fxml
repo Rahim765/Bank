@@ -8,11 +8,11 @@
    <children>
       <TableView prefHeight="491.0" prefWidth="445.0">
         <columns>
-          <TableColumn prefWidth="64.0" text="نوع تراکنش" />
-          <TableColumn prefWidth="90.0" text="تاریخ" />
-            <TableColumn prefWidth="42.0" text="نوع ارز" />
-            <TableColumn prefWidth="76.0" text="مبلغ" />
-            <TableColumn prefWidth="87.0" text="شماره موبایل " />
+          <TableColumn prefWidth="72.99998474121094" text="نوع تراکنش" />
+          <TableColumn prefWidth="77.00001525878906" text="تاریخ" />
+            <TableColumn prefWidth="50.0" text="نوع ارز" />
+            <TableColumn prefWidth="83.0" text="مبلغ" />
+            <TableColumn prefWidth="79.0" text="شماره موبایل " />
             <TableColumn prefWidth="85.0" text="نام" />
         </columns>
       </TableView>

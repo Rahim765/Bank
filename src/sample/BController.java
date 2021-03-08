@@ -12,6 +12,9 @@ import sample.Code.SignUp;
 
 import java.io.*;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class BController implements Initializable {
@@ -68,6 +71,14 @@ public class BController implements Initializable {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", true)));
             Customer customer = new Customer(name.getText(),number.getText(),mablagh.getText(), arz.getValue());
             new SignUp().sabt_name(customer.getName(),customer.getNumber(),customer.getCost(), warning, arz.getValue(), "Badehkar.txt");
+            String tarakonesh ="";
+            DateFormat df = new SimpleDateFormat("dd/MM/yy");
+            Date dateobj = new Date();
+            tarakonesh= name.getText()+"@"+number.getText()+"@"+mablagh.getText()+"@"+arz.getValue()+"@"+df.format(dateobj)+"@"+"دریافت بدهی"+"\n";
+            PrintWriter printWriter2 = null;
+            printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+            printWriter2.print(tarakonesh);
+            printWriter2.flush();
             name.setText("");
             number.setText("");
             mablagh.setText("");
@@ -116,7 +127,14 @@ public class BController implements Initializable {
                     int price = Integer.parseInt(s[2]);
                     int price2 = Integer.parseInt(mablaghe.getText());
                     x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price+price2)+"@"+s[3]+"\n";
-
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"دریافت بدهی"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
                 }else {
                     x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
                 }
@@ -154,7 +172,14 @@ public class BController implements Initializable {
                     if (price-price2>0) {
                         x = x + s[0] + "@" + s[1] + "@" + String.valueOf(price - price2) + "@" + s[3] + "\n";
                     }
-
+                    String tarakonesh ="";
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                    Date dateobj = new Date();
+                    tarakonesh= s[0]+"@"+s[1]+"@"+String.valueOf(price2)+"@"+s[3]+"@"+df.format(dateobj)+"@"+"پرداخت بدهی"+"\n";
+                    PrintWriter printWriter2 = null;
+                    printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
+                    printWriter2.print(tarakonesh);
+                    printWriter2.flush();
                 }else {
                     x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
                 }

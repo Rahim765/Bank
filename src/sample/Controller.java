@@ -87,6 +87,84 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void setbardasht(ActionEvent actionEvent){
+        String x="";
+        BufferedReader bufferedReader= null;
+        PrintWriter printWriter = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("Signup.txt"));
+            while (true) {
+                String line = bufferedReader.readLine();
+                if (line == null) {
+                    break;
+                }
+                String[] s = line.split("@");
+                if (nameb.getText().equals(s[0])&& numberb.getText().equals(s[1])
+                        &&comboBox_bardasht.getValue().equals(s[3])) {
+                    int price = Integer.parseInt(s[2]);
+                    int price2 = Integer.parseInt(mablaghb.getText());
+                    x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price-price2)+"@"+s[3]+"\n";
+
+                }else {
+                    x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", false)));
+            printWriter.print(x);
+            printWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setEntaghal_vajh(ActionEvent actionEvent){
+        String x="";
+        BufferedReader bufferedReader= null;
+        PrintWriter printWriter = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("Signup.txt"));
+            while (true) {
+                String line = bufferedReader.readLine();
+                if (line == null) {
+                    break;
+                }
+                String[] s = line.split("@");
+                if (namev.getText().equals(s[0])&& numberv.getText().equals(s[1])
+                        &&comboBox_entaghal.getValue().equals(s[3])) {
+                    int price = Integer.parseInt(s[2]);
+                    int price2 = Integer.parseInt(mablaghv.getText());
+                    x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price-price2)+"@"+s[3]+"\n";
+
+                }else if (named.getText().equals(s[0])&& numberd.getText().equals(s[1])
+                        &&comboBox_daryaft.getValue().equals(s[3])) {
+                    int price = Integer.parseInt(s[2]);
+                    int price2 = Integer.parseInt(mablaghv.getText());
+                    x = x+s[0]+"@"+s[1]+"@"+String.valueOf(price+price2)+"@"+s[3]+"\n";
+                }
+                else {
+                    x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3] + "\n";
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            printWriter =  new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", false)));
+            printWriter.print(x);
+            printWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBox_ezafeh.setItems(listrz);

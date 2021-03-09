@@ -11,11 +11,16 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Code.Customer;
@@ -103,6 +108,16 @@ public class FirstController implements Initializable {
         setlist();
         arz_signup.setItems(listrz);
         search();
+
+    //    BackgroundFill background_fill = new BackgroundFill(Color.CYAN,
+      //          CornerRadii.EMPTY, Insets.EMPTY);
+     //   Background background = new Background(background_fill);
+    ///    table.setBackground(background);
+      //  table.setStyle("-fx-background-color: #93f9b911");
+  //      name.setStyle("-fx-background-color: #93f9b999");
+   //     number.setStyle("-fx-background-color: #93f9b999");
+   //     mablagh.setStyle("-fx-background-color: #93f9b999");
+     //   arz.setStyle("-fx-background-color: #93f9b999");
 
         tara.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {

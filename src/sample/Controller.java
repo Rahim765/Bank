@@ -23,7 +23,7 @@ public class Controller implements Initializable {
     ComboBox<String> comboBox_entaghal = new ComboBox<>();
     @FXML
     ComboBox<String> comboBox_daryaft = new ComboBox<>();
-    ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان");
+    ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان" , "یورو" , "کالدار" );
     @FXML
     TextField namee;
     @FXML

@@ -6,21 +6,21 @@
 
 <AnchorPane prefHeight="491.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TController">
    <children>
-      <TableView prefHeight="491.0" prefWidth="445.0">
+      <TableView fx:id="table" prefHeight="491.0" prefWidth="445.0">
         <columns>
-          <TableColumn prefWidth="72.99998474121094" text="نوع تراکنش" />
-          <TableColumn prefWidth="77.00001525878906" text="تاریخ" />
-            <TableColumn prefWidth="50.0" text="نوع ارز" />
-            <TableColumn prefWidth="83.0" text="مبلغ" />
-            <TableColumn prefWidth="79.0" text="شماره موبایل " />
-            <TableColumn prefWidth="85.0" text="نام" />
+          <TableColumn fx:id="tarakonesh" prefWidth="78.0" text="نوع تراکنش" />
+          <TableColumn fx:id="date" prefWidth="73.0" text="تاریخ" />
+            <TableColumn fx:id="arz" prefWidth="50.0" text="نوع ارز" />
+            <TableColumn fx:id="mablagh" prefWidth="83.0" text="مبلغ" />
+            <TableColumn fx:id="number" prefWidth="79.0" text="شماره موبایل " />
+            <TableColumn fx:id="name" prefWidth="85.0" text="نام" />
         </columns>
       </TableView>
       <Pane layoutX="446.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <TextField fx:id="namej" layoutX="44.0" layoutY="54.0" />
             <TextField fx:id="numberj" layoutX="44.0" layoutY="100.0" />
-            <Button fx:id="jostejo" layoutX="74.0" layoutY="150.0" mnemonicParsing="false" text="جستجو" />
+            <Button fx:id="jostejo" layoutX="74.0" layoutY="150.0" mnemonicParsing="false" onAction="#setlist" text="جستجو" />
             <Label layoutX="16.0" layoutY="58.0" text="نام" />
             <Label layoutX="7.0" layoutY="104.0" text="موبایل" />
             <Label layoutX="44.0" layoutY="14.0" text="جستجو سابقه تراکنش ها" />
@@ -31,11 +31,12 @@
             <Label layoutX="51.0" layoutY="14.0" text="حذف سابقه تراکنش ها" />
             <TextField fx:id="nameh" layoutX="45.0" layoutY="58.0" />
             <TextField fx:id="numberh" layoutX="45.0" layoutY="107.0" />
-            <Button fx:id="hazf" layoutX="74.0" layoutY="152.0" mnemonicParsing="false" text="حذف" />
+            <Button fx:id="hazf" layoutX="74.0" layoutY="152.0" mnemonicParsing="false" onAction="#setHazf" text="حذف" />
             <Label layoutX="18.0" layoutY="62.0" text="نام" />
             <Label layoutX="9.0" layoutY="111.0" text="موبایل" />
          </children>
       </Pane>
       <Line endX="100.0" layoutX="546.0" layoutY="221.0" startX="-100.0" />
+      <Button layoutX="445.0" layoutY="452.0" mnemonicParsing="false" onAction="#setlist2" prefHeight="35.0" prefWidth="200.0" text="لیست کردن تمام تراکنش ها" />
    </children>
 </AnchorPane>

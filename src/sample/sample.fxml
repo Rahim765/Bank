@@ -11,7 +11,7 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="46.0" layoutY="14.0" prefHeight="17.0" prefWidth="89.0" text="اضافه کردن وجه" />
+                  <Label layoutX="62.0" layoutY="18.0" prefHeight="17.0" prefWidth="89.0" text="اضافه کردن وجه" />
                   <Line endY="200.0" layoutX="200.0" startY="-0.7071075439453125" />
                   <Line endX="100.0" layoutX="100.0" layoutY="200.0" startX="-100.0" />
                   <Label layoutX="14.0" layoutY="46.0" prefHeight="17.0" prefWidth="32.0" text="نام" />

@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,10 +64,47 @@ public class BController implements Initializable {
     ComboBox<String> arzt;
     @FXML
     Button tasfiah;
+    @FXML
+    TextField filter;
 
     ObservableList<Customer> list_customer;
-    ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان");
+    ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان", "یورو" , "کالدار" );
 
+
+    public void search(){
+        filter.setPromptText("Filter");
+        filter.textProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                if (filter.getText().equals("")){
+                    setlist();
+                }
+                ObservableList<Customer> list_tarakonesh;
+                list_tarakonesh = FXCollections.observableArrayList();
+                BufferedReader bufferedReader= null;
+                try {
+                    bufferedReader = new BufferedReader(new FileReader("Badehkar.txt"));
+                    while (true) {
+                        String line = bufferedReader.readLine();
+                        if (line == null) {
+                            break;
+                        }
+                        String[] s = line.split("@");
+                        if (s[0].contains(filter.getText())){
+                            list_tarakonesh.add(new Customer(s[0], s[1], s[2], s[3]));
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally {
+                    table.setItems(list_tarakonesh);
+                }
+            }
+
+        });
+    }
     public void sabt(ActionEvent actionEvent) {
         try {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter("Badehkar.txt", true)));
@@ -209,5 +248,6 @@ public class BController implements Initializable {
         arz.setItems(listrz);
         arze.setItems(listrz);
         arzt.setItems(listrz);
+        search();
     }
 }

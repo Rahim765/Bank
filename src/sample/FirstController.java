@@ -38,30 +38,48 @@ import java.util.ResourceBundle;
 public class FirstController implements Initializable {
     PrintWriter printWriter = null;
     BufferedReader bufferedReader = null;
+
     @FXML
     TextField hazf_name;
     @FXML
+    TextField hazf_namef;
+    @FXML
+    TextField hazf_village;
+    @FXML
     TextField hazf_num;
+
     @FXML
     TextField signup_name;
     @FXML
+    TextField signup_namef;
+    @FXML
     TextField signup_num;
     @FXML
-    TextField signup_cost;
+    TextField signup_village;
     @FXML
     Label warning;
-    @FXML
-    ComboBox<String> arz_signup ;
+
     @FXML
     TableView table = new TableView();
     @FXML
     TableColumn<Customer , String> name;
     @FXML
+    TableColumn<Customer , String> namef;
+    @FXML
+    TableColumn<Customer , String> village;
+    @FXML
     TableColumn<Customer , String> number;
     @FXML
-    TableColumn<Customer , String> mablagh;
+    TableColumn<Customer , String> afghani;
     @FXML
-    TableColumn<Customer , String> arz;
+    TableColumn<Customer , String> toman;
+    @FXML
+    TableColumn<Customer , String> dollar;
+    @FXML
+    TableColumn<Customer , String> kaldar;
+    @FXML
+    TableColumn<Customer , String> uru;
+
     @FXML
     private TextField filterField;
     @FXML
@@ -71,25 +89,18 @@ public class FirstController implements Initializable {
     @FXML
     private Button tarak;
 
-
-    ObservableList<String> listrz = FXCollections.observableArrayList("دالر", "افغانی" ,"تومان" , "یورو" , "کالدار" );
     ObservableList<Customer> list_customer;
     public void signup(ActionEvent actionEvent){
         try {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter("Signup.txt", true)));
-            Customer customer = new Customer(signup_name.getText(),signup_num.getText(),signup_cost.getText(),arz_signup.getValue());
-             new  SignUp().sabt_name(customer.getName(),customer.getNumber(),customer.getCost(), warning, arz_signup.getValue(), "Signup.txt");
-            String tarakonesh ="";
-            DateFormat df = new SimpleDateFormat("dd/MM/yy");
-            Date dateobj = new Date();
-            tarakonesh= signup_name.getText()+"@"+signup_num.getText()+"@"+signup_cost.getText()+"@"+arz_signup.getValue()+"@"+df.format(dateobj)+"@"+"اضافه"+"\n";
-            PrintWriter printWriter2 = null;
-            printWriter2 =  new PrintWriter(new BufferedWriter(new FileWriter("Tarakonesh.txt", true)));
-            printWriter2.print(tarakonesh);
-            printWriter2.flush();
+            Customer customer = new Customer(signup_name.getText(),signup_namef.getText(),signup_village.getText(),signup_num.getText(),
+                    "0","0","0","0","0");
+             new  SignUp().sabt_name(customer.getName(),customer.getFname(),customer.getVallage(),customer.getNumber(),customer.getAfghani()
+                     ,customer.getToman(),customer.getDollar(),customer.getKaldar(),customer.getUru(),  "Signup.txt" ,warning);
             signup_name.setText("");
             signup_num.setText("");
-            signup_cost.setText("");
+            signup_village.setText("");
+            signup_namef.setText("");
             setlist();
 
         } catch (IOException e) {
@@ -102,11 +113,17 @@ public class FirstController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setCellValueFactory(new PropertyValueFactory<Customer , String>("name"));
+        namef.setCellValueFactory(new PropertyValueFactory<Customer , String>("fname"));
+        village.setCellValueFactory(new PropertyValueFactory<Customer , String>("vallage"));
         number.setCellValueFactory(new PropertyValueFactory<Customer , String>("number"));
-        mablagh.setCellValueFactory(new PropertyValueFactory<Customer , String>("cost"));
-        arz.setCellValueFactory(new PropertyValueFactory<Customer , String>("arzCost"));
+        afghani.setCellValueFactory(new PropertyValueFactory<Customer , String>("afghani"));
+        toman.setCellValueFactory(new PropertyValueFactory<Customer , String>("toman"));
+        dollar.setCellValueFactory(new PropertyValueFactory<Customer , String>("dollar"));
+        kaldar.setCellValueFactory(new PropertyValueFactory<Customer , String>("kaldar"));
+        uru.setCellValueFactory(new PropertyValueFactory<Customer , String>("uru"));
+
         setlist();
-        arz_signup.setItems(listrz);
+
         search();
 
     //    BackgroundFill background_fill = new BackgroundFill(Color.CYAN,
@@ -195,7 +212,7 @@ public class FirstController implements Initializable {
                             }
                             String[] s = line.split("@");
                             if (s[0].contains(filterField.getText())){
-                                list_tarakonesh.add(new Customer(s[0], s[1], s[2], s[3]));
+                                list_tarakonesh.add(new Customer(s[0], s[1], s[2], s[3],s[4],s[5],s[6],s[7],s[8]));
                             }
                         }
                     } catch (FileNotFoundException e) {
@@ -221,7 +238,7 @@ public class FirstController implements Initializable {
                     break;
                 }
                 String[] s = line.split("@");
-                list_customer.add(new Customer(s[0], s[1], s[2], s[3]));
+                list_customer.add(new Customer(s[0], s[1], s[2], s[3],s[4],s[5],s[6],s[7],s[8]));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -245,9 +262,10 @@ public class FirstController implements Initializable {
                     break;
                 }
                 String[] s = line.split("@");
-                if (hazf_name.getText().equals(s[0])&& hazf_num.getText().equals(s[1])) {
+                if (hazf_name.getText().equals(s[0])&& hazf_namef.getText().equals(s[1]) && hazf_village.equals(s[2])
+                && hazf_num.equals(s[3])) {
                 }else {
-                    x += s[0] + "@" + s[1] + "@" + s[2] + "@" + s[3]+"\n";
+                    x += s[0]+"@"+s[1]+"@"+s[2]+"@"+ s[3]+"@"+s[4]+"@"+s[5]+"@"+s[6]+"@"+s[7]+"@"+s[8]+"\n";
                 }
             }
         } catch (FileNotFoundException e) {

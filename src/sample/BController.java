@@ -91,7 +91,7 @@ public class BController implements Initializable {
                         }
                         String[] s = line.split("@");
                         if (s[0].contains(filter.getText())){
-                            list_tarakonesh.add(new Customer(s[0], s[1], s[2], s[3]));
+                            list_tarakonesh.add(new Customer(s[0], s[1], s[2], s[3],s[4],s[5],s[6],s[7],s[8]));
                         }
                     }
                 } catch (FileNotFoundException e) {
@@ -138,7 +138,7 @@ public class BController implements Initializable {
                     break;
                 }
                 String[] s = line.split("@");
-                list_customer.add(new Customer(s[0], s[1], s[2], s[3]));
+                list_customer.add(new Customer(s[0], s[1], s[2], s[3],s[4],s[5],s[6],s[7],s[8]));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

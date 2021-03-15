@@ -7,7 +7,8 @@ import java.io.*;
 
 public class SignUp {
 
-    public  void sabt_name(String name, String num, String cost, Label warning , String arz , String path) {
+    public  void sabt_name(String name, String fname, String vallage, String number,
+                           String afghani, String toman, String dollar, String kaldar, String uru, String path,Label warning) {
         boolean repeat = false;
         BufferedReader bufferedReader= null;
         PrintWriter printWriter = null;
@@ -23,7 +24,7 @@ public class SignUp {
                 }
 
                 String[] s = line.split("@");
-                if (name.equals(s[0])&&num.equals(s[1]) && arz.equals(s[3])) {
+                if (name.equals(s[0])&&fname.equals(s[1]) && vallage.equals(s[2])&&number.equals(s[3])) {
                     repeat = true;
                     break;
                 }
@@ -37,7 +38,8 @@ public class SignUp {
         }
 
         if (repeat == false) {
-            printWriter.println(name  + "@" + num  + "@" + cost+ "@"+ arz );
+            printWriter.println(name  + "@" + fname  + "@" + vallage+ "@"+ number+"@"+afghani+"@"+toman
+            +"@"+dollar+"@"+kaldar+"@"+uru+"\n");
             printWriter.flush();
             warning.setText("");
 
